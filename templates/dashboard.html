@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AegisOps | Observability Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>AegisOps</h1>
+            <p>Container Reliability & Observability Platform</p>
+        </div>
+
+        <div id="system-status">
+            ● Operational
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <p>REAL-TIME INFRASTRUCTURE MONITORING</p>
+            <h2>System Overview</h2>
+            <span>
+                Live health and performance information from the
+                AegisOps service.
+            </span>
+        </section>
+
+
+        <section class="metrics">
+
+            <div class="card">
+                <p>CPU Usage</p>
+                <h2 id="cpu-value">--%</h2>
+            </div>
+
+            <div class="card">
+                <p>Memory Usage</p>
+                <h2 id="memory-value">--%</h2>
+            </div>
+
+            <div class="card">
+                <p>Application Uptime</p>
+                <h2 id="uptime-value">--</h2>
+            </div>
+
+            <div class="card">
+                <p>Total Requests</p>
+                <h2 id="requests-value">--</h2>
+            </div>
+
+        </section>
+
+
+        <section class="service-panel">
+
+            <h2>Service Information</h2>
+
+            <div class="service-grid">
+
+                <div>
+                    <span>Service</span>
+                    <strong>AegisOps</strong>
+                </div>
+
+                <div>
+                    <span>Environment</span>
+                    <strong id="environment-value">--</strong>
+                </div>
+
+                <div>
+                    <span>Version</span>
+                    <strong id="version-value">--</strong>
+                </div>
+
+                <div>
+                    <span>Process Memory</span>
+                    <strong id="process-memory-value">-- MB</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>

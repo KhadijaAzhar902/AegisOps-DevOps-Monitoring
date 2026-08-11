@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git/
+.gitignore
+.vscode/
+.env
+*.log
+venv/
+.venv/
+README.md
+aegisops-grafana-dashboard.json
