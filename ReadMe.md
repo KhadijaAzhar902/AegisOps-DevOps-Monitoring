@@ -1,16 +1,18 @@
 # AegisOps
+
 AegisOps is a containerized web-server monitoring and observability project built for a DevOps internship task provided by CodeAlpha.
 
-And the name itself means:
+The name **AegisOps** represents:
 
-Aegis = protection/shield
-Ops = operations
+- **Aegis** = protection / shield
+- **Ops** = operations
 
-So AegisOps = protection for your application operations.
+So, **AegisOps = protection for application operations.**
 
 The project demonstrates how a web application can be deployed inside Docker, monitored for health and performance, and observed using Prometheus and Grafana.
 
 ## Tech Stack
+
 - Python
 - Flask
 - Gunicorn
@@ -21,8 +23,9 @@ The project demonstrates how a web application can be deployed inside Docker, mo
 - HTML, CSS and JavaScript
 
 ## Features
+
 - Containerized Flask web application
-- Production-style Gunicorn web server
+- Gunicorn web server
 - Docker health checks
 - `/health` endpoint for service monitoring
 - `/metrics` endpoint for Prometheus
@@ -36,26 +39,31 @@ The project demonstrates how a web application can be deployed inside Docker, mo
 - Controlled HTTP 500 failure testing
 
 ## Architecture
+
+```text
 AegisOps Application
         |
         | exposes /metrics
         v
-Prometheus
+   Prometheus
         |
-        | queries metrics
+        | provides metrics
         v
 Grafana Dashboard
+```
 
 All services run as Docker containers using Docker Compose.
 
 ## Services
+
 | Service | Port | Purpose |
-|---|---:|---|
+|----------|-----:|---------|
 | AegisOps | 5000 | Web application |
 | Prometheus | 9090 | Metrics collection |
 | Grafana | 3000 | Monitoring dashboard |
 
 ## Monitoring Dashboard
+
 The Grafana dashboard monitors:
 
 - Service health
@@ -67,89 +75,137 @@ The Grafana dashboard monitors:
 - Memory usage
 
 ## Health Check
+
 AegisOps exposes:
-`/health`
+
+```text
+/health
+```
+
 Example response:
+
 ```json
 {
   "status": "healthy",
   "service": "AegisOps",
   "version": "1.0.0"
 }
+```
 
-Failure Simulation
+## Failure Simulation
+
 For monitoring tests, AegisOps includes:
+
+```text
 /test-error
-This intentionally returns HTTP status 500.
-It was used to verify that:
+```
+
+This endpoint intentionally returns HTTP status `500`.
+
+It was used to verify that the monitoring pipeline:
+
+```text
 AegisOps → Prometheus → Grafana
+```
+
 can detect and visualize application failures.
 
-Running the Project
+## Running the Project
 
 Build and start all services:
+
+```bash
 docker compose up -d --build
+```
 
 Check running containers:
+
+```bash
 docker compose ps
+```
 
 View application logs:
+
+```bash
 docker logs aegisops-app
+```
 
 Stop the services:
+
+```bash
 docker compose down
+```
 
-Access:-
+## Access
 
-AegisOps:
+**AegisOps**
+
+```text
 http://localhost:5000
+```
 
-Health endpoint:
+**Health endpoint**
+
+```text
 http://localhost:5000/health
+```
 
-Metrics:
+**Metrics**
+
+```text
 http://localhost:5000/metrics
+```
 
-Prometheus:
+**Prometheus**
+
+```text
 http://localhost:9090
+```
 
-Grafana:
+**Grafana**
+
+```text
 http://localhost:3000
+```
 
-Docker Best Practices Used
-Lightweight Python slim image
-.dockerignore
-Dependency layer caching
---no-cache-dir for Python packages
-Docker health checks
-Docker Compose
-Persistent named volumes
-Gunicorn instead of Flask's development server
-Separate monitoring services
-Troubleshooting Practiced
+## Docker Best Practices Used
+
+- Lightweight Python slim image
+- `.dockerignore`
+- Dependency layer caching
+- `--no-cache-dir` for Python packages
+- Docker health checks
+- Docker Compose
+- Persistent named volumes
+- Gunicorn instead of Flask's development server
+- Separate monitoring services
+
+## Troubleshooting Practiced
 
 During development, several real issues were diagnosed and fixed, including:
 
-Docker daemon not running
-Missing Python dependencies
-Container health-check failures
-Port conflicts
-Prometheus scraping configuration
-Grafana data-source configuration
-PromQL query troubleshooting
-HTTP 500 failure detection
-Docker Compose YAML configuration errors
-Persistent Grafana storage
-Internship Task
+- Docker daemon not running
+- Missing Python dependencies
+- Container health-check failures
+- Port conflicts
+- Prometheus scraping configuration
+- Grafana data-source configuration
+- PromQL query troubleshooting
+- HTTP 500 failure detection
+- Docker Compose YAML configuration errors
+- Persistent Grafana storage
+
+## Internship Task
 
 This project addresses the following Docker web-server objectives:
 
-Docker containerization basics
-Deployment and management of a web server
-Container lifecycle commands
-Container health monitoring
-Troubleshooting
-Container-based deployment best practices
+- Docker containerization basics
+- Deployment and management of a web server
+- Container lifecycle commands
+- Container health monitoring
+- Troubleshooting
+- Container-based deployment best practices
 
- Author
+## Author
+
 Khadija Azhar
