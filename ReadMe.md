@@ -1,5 +1,12 @@
 # AegisOps
-AegisOps is a containerized web-server monitoring and observability project built for a DevOps internship task.
+AegisOps is a containerized web-server monitoring and observability project built for a DevOps internship task provided by CodeAlpha.
+
+And the name itself means:
+
+Aegis = protection/shield
+Ops = operations
+
+So AegisOps = protection for your application operations.
 
 The project demonstrates how a web application can be deployed inside Docker, monitored for health and performance, and observed using Prometheus and Grafana.
 
